@@ -1,2 +1,25 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
+
+
+	<h1> Epic Game </h1>
+	<h2> Main Menu </h2>
+
+	<div class="menuBlock">
+		<div class="menuBox">
+			<p class='js-scoreboard'> Score Board </p>
+		</div>
+
+		<div class="menuBlock">
+			<p class='js-start-game'> Start Game </p>
+		</div>
+
+		<div class="menuBlock">
+			<p class='js-login'> Login </p>
+		</div>
+
+	</div>
+
+
+
+
 </fest:template>
