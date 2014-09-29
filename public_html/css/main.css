@@ -4,35 +4,126 @@
 	За каждый класс, либо псевдо класс - [0:1:0] (.my :pseudo)
 	За каждый тег - [0:0:1] (div a)
 */
+
+
+
+
 body {
-	width: 300px;
-	height: 100px;
+	min-width: 270px; /* Равна ширине .menu */
+	min-height: 350px; /* Равна высоте .menu */
+	background: #EEEEEE;
 }
 
-.backButton {
-	width: 150px;
-	height: 30px;
-}
-
-.submitButton {
-	width: 150px;
-	height: 30px;
-}
-
-.menuBlock {
-	/*text-align: center;
-	width: 300;*.
-
-}
-
-.menuBox {
-	/*background: gray;
+.menu,
+.scoreboard,
+.game,
+.login {
+	top: 50%; /* Отступ в процентах от верхнего края окна */
+	left: 50%; /* Отступ в процентах от левого края окна */
+	border: solid 2px #27496d;
+	width: 270px; /* Ширина блока */
+	height: 350px; /* Высота блока */
+	position: absolute; /* Абсолютное позиционирование блока */
+	margin-top: -175px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+	margin-left: -175px; /* Отрицательный отступ от левого края страницы, должен равняться половине высоты блока со знаком минус */
 	text-align: center;
-	width: 200px;
-	margin:0 auto; */
+	background: #6496c8;
 }
 
-.menuText {
-	color: black;
-	text-decoration: none;
+button {
+	display: inline-block;
+	margin: 0px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края */
+	padding: 0px; /* Поочередно устанавливается поля от верхнего, правого, нижнего и левого края */
+	font-family: "Bitter", serif;
+	line-height: 1.8;
+	box-shadow: none;
+	border-radius: 0;
 }
+
+button:focus {
+	outline: none;
+}
+
+div.buttonBack button,
+div.submitButton button,
+div.menu__block__item button {
+	color: #fff;
+	background-color: #6496c8;
+	text-shadow: -1px 1px #417cb8;
+	border: solid 2px #6496c8;
+	width: 100%;
+	font-size: 24px;
+}
+
+div.buttonBack button:hover,
+div.submitButton button:hover,
+div.menu__block__item button:hover {
+	background-color: #346392;
+	text-shadow: -1px 1px #27496d;
+	border-color: #27496d;
+}
+
+.menu__title {
+	color: black;
+}
+
+h1.menu__title {
+	font-size: 30px;
+}
+
+h2.menu__title {
+	font-size: 26px;
+}
+
+.buttonBack {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+div.submitButton button{
+	background-color: #2960B9;
+	width: 100%;
+}
+
+
+
+
+
+
+
+input {
+	text-align: center;
+	background-color: #ECF0F1;
+	border: 2px solid transparent;
+	border-radius: 3px;
+	font-size: 16px;
+	font-weight: 200;
+	padding: 10px 0;
+	width: 250px;
+	transition: border .5s;
+}
+
+input:focus {
+	border: 2px solid #3498DB;
+	box-shadow: none;
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+	margin-top: 12px;
+}
+
+
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+/*.login {
+margin: 20px auto;
+width: 300px;
+}*/

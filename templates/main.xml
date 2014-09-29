@@ -1,24 +1,26 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
 
 
-	<h1> Epic Game </h1>
-	<h2> Main Menu </h2>
+<div class="menu">
+	
+	<h1 class="menu__title"> Epic Game </h1>
+	<h2 class="menu__title"> Main Menu </h2>
 
-	<div class="menuBlock">
-		<div class="menuBox">
-			<p class='js-scoreboard'> Score Board </p>
+	<div class="menu__block">
+		<div class="menu__block__item">
+			<button class="js-scoreboard"> Score Board</button>
 		</div>
 
-		<div class="menuBlock">
-			<p class='js-start-game'> Start Game </p>
+		<div class="menu__block__item">
+			<button class="js-start-game"> Start Game</button>
 		</div>
 
-		<div class="menuBlock">
-			<p class='js-login'> Login </p>
+		<div class="menu__block__item">
+			<button class="js-login"> Login </button>
 		</div>
 
 	</div>
-
+</div>
 
 
 
