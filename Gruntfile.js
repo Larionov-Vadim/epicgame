@@ -21,7 +21,11 @@ module.exports = function (grunt) {
                 options: {
                     template: function (data) {
                         return grunt.template.process(
+<<<<<<< HEAD
                             'var <%= name %>Tmpl = <%= contents %> ;',
+=======
+                            'define(function () { return <%= contents %> ; });',
+>>>>>>> tp/v2
                             {data: data}
                         );
                     }

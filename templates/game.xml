@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
 
 	<div class="game">
 		<h1 class="menu__title"> Epic Game </h1>
