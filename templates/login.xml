@@ -1,22 +1,14 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
 
-<div class="login">
-	<form name='login-form' method='post' action="/api/v1/auth/signin">
-		<h1 class="menu__title"> Epic Game </h1>
-
-		<p><input name='login-field' type='text' placeholder='Email'
-			maxlength='255'> </input></p>
-		<p><input name="login-field" type='password' placeholder='Password' 
-			maxlength='255'> </input></p>
-
-		<div class="submitButton">
-			<button> Submit </button>
+	<div class="login">
+		<div class="login__title"></div>
+		<div class="login__form">
+			<form name="loginForm" method="post">
+				<p><input name="loginField" type="text" placeholder="Email" maxlength="255"> </input></p>
+				<p><input name="passField" type="password" placeholder="Password" maxlength="255"> </input></p>
+				<p><input class="submitButton" type="submit" value="Submit"></input></p>
+			</form>
 		</div>
-	</form>
-
-	<div class="buttonBack">
-		<button class="js-back"> Back </button>
+		<a href="/#"> <button class="js-back"> Back </button></a>
 	</div>
-</div>
-
 </fest:template>

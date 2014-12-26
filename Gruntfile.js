@@ -7,7 +7,7 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8080'
+                command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8070'
             }
         },
         fest: {
@@ -21,14 +21,14 @@ module.exports = function (grunt) {
                 options: {
                     template: function (data) {
                         return grunt.template.process(
-                            'var <%= name %>Tmpl = <%= contents %> ;',
+						  'define(function () { return <%= contents %> ; });',
                             {data: data}
                         );
                     }
                 }
             }
         },
-        watch: {
+		        watch: {
             fest: {
                 files: ['templates/*.xml'],
                 tasks: ['fest'],
@@ -37,29 +37,31 @@ module.exports = function (grunt) {
                     atBegin: true
                 }
             },
-            server: {
+			server: {
                 files: [
-                    'public_html/js/**/*.js',
+                    'public_html/js/**/*.js', /* следим за статикой */
                     'public_html/css/**/*.css'
                 ],
                 options: {
-                    livereload: true
+                    interrupt: true,
+                    livereload: true /* перезагрузить страницу */
                 }
             }
         },
-        concurrent: {
+		concurrent: {
             target: ['watch', 'shell'],
             options: {
-                logConcurrentOutput: true
+                logConcurrentOutput: true 
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-concurrent');
+	grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
 
     grunt.registerTask('default', ['concurrent']);
+	//grunt.registerTask('default', ['shell', 'watch']);	
 
 };

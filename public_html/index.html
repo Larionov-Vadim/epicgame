@@ -1,93 +1,11 @@
-<!DOCTYPE  html>
+﻿<!DOCTYPE html>
 <html><head>
     <meta charset="utf-8" />
-    <title>EpicGame</title>
+    <title>SeaBattle</title>
     <link rel="stylesheet" href="/css/main.css" />
-    <script src="/js/lib/jquery.js"></script>
-    <script src="/js/tmpl/main.js"></script>
-    <script src="/js/tmpl/scoreboard.js"></script>
-    <script src="/js/tmpl/game.js"></script>
-    <script src="/js/tmpl/login.js"></script>
-
+    <link rel="stylesheet" href="/css/game.css" />
+    <link rel="stylesheet" href="/css/joystick.css" />
 </head><body>
-    <div id="page"></div>
-    <script>
-        var $page = $('#page');
-        var currentPage = 'main';
-
-        /* Конструктруктор экрана "Лучшие игроки" */
-        function showScoreboardScreen() {
-            hideMainScreen(); // Убиваем главный экран "Main"
-            currentPage = 'scoreboard';
-            $page.html(scoreboardTmpl()); // Рендерим шаблон
-            // Инициализируем обработчики событий
-            $page.find('.js-back').on('click', showMainScreen);
-        }
-
-        /* Деструктор экрана "Лучшие игроки" */
-        function hideScoreboardScreen() {
-            // Удаляем установленные обработчики событий
-            $page.find('.js-back').off('click', showMainScreen);
-        }
-
-        /* Конструктор экрана "Игра" */
-        function showGameScreen() {
-            hideMainScreen(); // Убиваем главный экран "Main"
-            currentPage = 'game';
-            $page.html(gameTmpl()); // Рендерим шаблон
-            // Инициализируем обработчики событий
-            $page.find('.js-back').on('click', showMainScreen);
-        }
-
-        /* Деструктор экрана "Игра" */
-        function hideGameScreen() {
-            // Удаляем установленные обработчики событий
-            $page.find('.js-back').off('click', showMainScreen);
-        }
-
-        /* Конструктор экрана "Авторизация" */
-        function showLoginScreen() {
-            hideMainScreen();
-            currentPage = 'login';
-            $page.html(loginTmpl());
-            $page.find('.js-back').on('click', showMainScreen);
-        }
-
-        /* Дейструктор экрана "Авторизация" */
-        function hideLoginScreen() {
-            $page.find('.js-back').off('click', showMainScreen);
-        }
-
-        /* Конструктор экрана "Main" */
-        function showMainScreen() {
-            if (currentPage == 'scoreboard') {
-                hideScoreboardScreen();
-            } else if (currentPage == 'game') {
-                hideGameScreen();
-            } else if (currentPage == 'login') {
-                hideLoginScreen();
-            }
-
-            currentPage = 'main';
-            $page.html(mainTmpl()); // Рендерим шаблон
-            // Инициализируем обработчики событий
-            $page.find('.js-scoreboard').on('click', showScoreboardScreen);
-            $page.find('.js-start-game').on('click', showGameScreen);
-            $page.find('.js-login').on('click', showLoginScreen);
-        }
-
-        /* Деструктор экрана "Main" */
-        function hideMainScreen() {
-            // Удаляем установленные обработчики событий
-            $page.find('.js-scoreboard').off('click', showScoreboardScreen);
-            $page.find('.js-start-game').off('click', showGameScreen);
-            $page.find('.js-login').off('click', showLoginScreen);
-        }
-
-
-        showMainScreen();
-    </script>
-
-    <!-- Livereload -->
+    <script data-main="js/main.js" src="js/lib/require.js"></script>
     <script src="//localhost:35729/livereload.js"></script>
 </body></html>
