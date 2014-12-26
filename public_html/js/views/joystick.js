@@ -13,11 +13,14 @@ define([
         events: {
             "touchstart div#block": "touchstart",
             "touchend div#block": "touchend",
-            "touchmove div#block": "touchmove"
+            "touchmove div#block": "touchmove",
+            "touchcancel div#block": "touchcancel"
+            //"orientationchange div#block": "orientationchange"
         },
 
         initialize: function () {
             $('body').append(this.el);
+            //this.el.addEventListener('orientationchange', this.orientationchange, false);
             this.render();
             this.hide();
         },
@@ -37,42 +40,62 @@ define([
         },
 
         touchstart: function(event) {
-            console.log("joystick.js: touchstart");
             event.preventDefault();
             block.className = 'touchstart';
             block.innerHTML = 'touchstart';
         },
         
         touchmove: function(event) {
+            if (event.originalEvent.touches.length > 1)
+                return;
             event.preventDefault();
             var x = event.originalEvent.touches[0].pageX;
             var y = event.originalEvent.touches[0].pageY;
             var clientWidth = block.clientWidth;
             var clientHeight = block.clientHeight;
-            var docWidth = $(document).width();
 
-            if (((x+clientWidth/2 <= docWidth)) && (x-clientWidth/2 >= 0)) {
+            if (((x+clientWidth/2 <= $(document).width())) && (x-clientWidth/2 >= 0)) {
                 $("#block").css({
-                    "left": x-block.clientWidth/2 + "px",
+                    "left": x-clientWidth/2 + "px",
                 });
             }
 
-            if ((y+clientHeight/2 <= docWidth) && (y-clientHeight/2>= 0)) {
+            if ( (y+clientHeight/2 <= $(document).height()) && (y-clientHeight/2>= 0) ) {
                 $("#block").css({
-                    "top": y-block.clientHeight/2+"px",
+                    "top": y-clientHeight/2+"px",
                 });
             }
 
-            block.innerHTML = 'touchmove';
+            block.innerHTML = "touchmove";
         },
 
         touchend: function(event) {
             event.preventDefault();
-            block.className = ' ';
-            block.innerHTML = 'touchend';
-            block.style = 'left: 500px; top: 200px;';
+            block.className = " ";
+            block.innerHTML = "touchend";
+        },
+
+        touchcancel: function(event) {
+            event.preventDefault();
+            block.className = " ";
+            block.innerHTML = "cancel";
         }
-        
+
+        /*orientationchange: function(event) {
+            event.preventDefault();
+            console.log("yo!");
+            /*
+            var a = document.getElementById('orientation');
+            if (window.orientation%180===0) {
+                block.innerHTML = "Portrait";
+            } else {
+                block.innerHTML = "Landscape";
+            }
+
+            alert("yo!");
+            console.log("yo!");
+        }
+        */
     });
 
     return new View();

@@ -13,3 +13,21 @@
 #block.touchstart {
     background: #666;
 }
+
+#orientation {
+    font-weight: bold;
+    padding: 10px;
+}
+
+/*
+@media screen and (orientation:portrait) {
+    #orientation:before{
+        content: "This device is in Portrait mode";
+    }
+}
+@media screen and (orientation:landscape) {
+    #orientation:before{
+        content: "This device is in Landscape mode";
+    }
+*/
+}

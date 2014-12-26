@@ -7,7 +7,7 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8070'
+                command: 'java -cp java_and_frontend_project_SDVM-1.0-jar-with-dependencies.jar main.Main'
             }
         },
         fest: {

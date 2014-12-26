@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
 
-    <h1 class="orientation" id="orientation">orientationchange Not Supported on this Device.</h1>
+    <h1 id="orientation"></h1>
     <div id="block">block</div>
 
 </fest:template>
