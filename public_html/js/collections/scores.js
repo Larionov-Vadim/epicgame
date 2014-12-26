@@ -7,7 +7,7 @@ define([
         model: Score,                                //связываем коллекцию с моделью
         
         initialize: function() {
-            console.log("Scoreboard is created2");
+            console.log("Scoreboard is created");
         }
     });
 

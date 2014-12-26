@@ -1,7 +1,8 @@
 define([
     'backbone',
-    'tmpl/joystick'
-], function(Backbone, tmpl){
+    'tmpl/joystick',
+    'jquery'
+], function(Backbone, tmpl, $){
 
 
     var View = Backbone.View.extend({
@@ -46,19 +47,22 @@ define([
             event.preventDefault();
             var x = event.originalEvent.touches[0].pageX;
             var y = event.originalEvent.touches[0].pageY;
-            // var block = document.getElementById('block');
-            console.log("x=%d, y=%d", x, y);
-             //console.log($(document).width());
-             //console.log(block.clientWidth)
-             //console.log($(document).width() - block.clientWidth);
-             console.log(block.style);
-            if (x < $(document).width() && x >= 0)
-            block.className = ' ';
-            block.style = 'left: 500px; top: 200px;';
-            //block.style.background = 'red';
-            //if (y < $(document).height() && y >= 0)
-            block.style.top = y - 50;
-            // block.className = 'touchmove';
+            var clientWidth = block.clientWidth;
+            var clientHeight = block.clientHeight;
+            var docWidth = $(document).width();
+
+            if (((x+clientWidth/2 <= docWidth)) && (x-clientWidth/2 >= 0)) {
+                $("#block").css({
+                    "left": x-block.clientWidth/2 + "px",
+                });
+            }
+
+            if ((y+clientHeight/2 <= docWidth) && (y-clientHeight/2>= 0)) {
+                $("#block").css({
+                    "top": y-block.clientHeight/2+"px",
+                });
+            }
+
             block.innerHTML = 'touchmove';
         },
 
