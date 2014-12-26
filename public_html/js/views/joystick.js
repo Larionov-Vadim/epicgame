@@ -1,9 +1,7 @@
 define([
     'backbone',
-    'tmpl/joystick',
-    'jquery',
-    'jquerymobile'
-], function(Backbone, tmpl, Jquery, Jquerymobile){
+    'tmpl/joystick'
+], function(Backbone, tmpl){
 
 
     var View = Backbone.View.extend({
@@ -54,7 +52,7 @@ define([
              //console.log(block.clientWidth)
              //console.log($(document).width() - block.clientWidth);
              console.log(block.style);
-            //if (x < $(document).width() && x >= 0)
+            if (x < $(document).width() && x >= 0)
             block.className = ' ';
             block.style = 'left: 500px; top: 200px;';
             //block.style.background = 'red';

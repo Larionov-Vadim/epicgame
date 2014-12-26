@@ -3,18 +3,10 @@
     color: #fff;
     border-radius: 35px;
     float: left;
-    left: 0;
-    top: 0;
     padding: 50px;
     position: absolute
 }
 
 #block.touchstart {
     background: #666;
-}
-
-#block.touchmove {
-	background: 'green';
-	left: 500px;
-	top: 200px;
 }
