@@ -19,15 +19,15 @@
     padding: 10px;
 }
 
-/*
+
 @media screen and (orientation:portrait) {
-    #orientation:before{
-        content: "This device is in Portrait mode";
+    .media:before{
+        content: "Media Queries: This device is in Portrait mode";
     }
 }
 @media screen and (orientation:landscape) {
-    #orientation:before{
-        content: "This device is in Landscape mode";
+    .media:before{
+        content: "Media Queries: This device is in Landscape mode";
     }
-*/
+
 }

@@ -1,5 +1,5 @@
 <class type='resources.ServerResources'>
-	<host>localhost</host>
+	<host>10.20.2.9</host>
 	<port>8090</port>
 	<db_name>EPICGAME_TP</db_name>
 </class>

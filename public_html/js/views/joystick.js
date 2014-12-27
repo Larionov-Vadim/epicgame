@@ -15,18 +15,18 @@ define([
             "touchend div#block": "touchend",
             "touchmove div#block": "touchmove",
             "touchcancel div#block": "touchcancel"
-            //"orientationchange div#block": "orientationchange"
         },
 
         initialize: function () {
             $('body').append(this.el);
-            //this.el.addEventListener('orientationchange', this.orientationchange, false);
+            this.el.addEventListener('orientationchange', this.orientationchange, false);
             this.render();
             this.hide();
         },
 
         render: function () {
             this.$el.html(this.template);
+            this.initorientation();
             return this;
         },
 
@@ -44,7 +44,7 @@ define([
             block.className = 'touchstart';
             block.innerHTML = 'touchstart';
         },
-        
+
         touchmove: function(event) {
             if (event.originalEvent.touches.length > 1)
                 return;
@@ -54,7 +54,7 @@ define([
             var clientWidth = block.clientWidth;
             var clientHeight = block.clientHeight;
 
-            if (((x+clientWidth/2 <= $(document).width())) && (x-clientWidth/2 >= 0)) {
+            if ( ((x+clientWidth/2 <= $(document).width())) && (x-clientWidth/2 >= 0)) {
                 $("#block").css({
                     "left": x-clientWidth/2 + "px",
                 });
@@ -79,23 +79,26 @@ define([
             event.preventDefault();
             block.className = " ";
             block.innerHTML = "cancel";
-        }
+        },
 
-        /*orientationchange: function(event) {
+        orientationchange: function(event) {
             event.preventDefault();
-            console.log("yo!");
-            /*
-            var a = document.getElementById('orientation');
+            
             if (window.orientation%180===0) {
-                block.innerHTML = "Portrait";
+                document.getElementById("orientation").innerHTML = "This device is in Portrait mode";
             } else {
-                block.innerHTML = "Landscape";
+                document.getElementById("orientation").innerHTML = "This device is in Landscape mode";
             }
+        },
 
-            alert("yo!");
-            console.log("yo!");
+        initorientation: function(event) {
+            if (window.orientation%180===0) {
+                document.getElementById("orientation").innerHTML = "This device is in Portrait mode";
+            } else {
+                document.getElementById("orientation").innerHTML = "This device is in Landscape mode";
+            }
         }
-        */
+
     });
 
     return new View();
